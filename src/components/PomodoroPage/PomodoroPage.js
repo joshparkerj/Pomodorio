@@ -12,13 +12,15 @@ class PomodoroPage extends React.Component {
   render(){
     return (
       <div style={{display: 'flex'}}>
-       
-        <section style={{background: 'yellow'}}>
+        <section>
+          <h1>Pomodoro</h1>
+          <div style={{display: 'flex'}}>
+            <Start />
+            <Timer />
+          </div>
           <DailyTracker />
           <WeeklyTracker />
           <YearlyTracker />
-          <Start />
-          <Timer />
         </section>
       </div>
     );

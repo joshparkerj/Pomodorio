@@ -13,7 +13,7 @@ class App extends React.Component {
           <section >
             <LeftSidebar />
           </section>
-          <section >
+          <section style={{padding: '0px 15px'}}>
             <Navigation />
             {this.props.children}
           </section>
