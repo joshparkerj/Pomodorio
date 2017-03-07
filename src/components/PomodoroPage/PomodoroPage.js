@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router'; 
-import LeftSidebar from './LeftSidebar'
 import DailyTracker from './DailyTracker';
 import WeeklyTracker from './WeeklyTracker';
 import YearlyTracker from './YearlyTracker';
@@ -12,15 +11,15 @@ class PomodoroPage extends React.Component {
 
   render(){
     return (
-      <div className="jumbotron">
-        <h1>Main Page</h1>
-        <p>React and SVG animations</p>
-        <DailyTracker />
-        <LeftSidebar />
-        <WeeklyTracker />
-        <YearlyTracker />
-        <Start />
-        <Timer />
+      <div style={{display: 'flex'}}>
+       
+        <section style={{background: 'yellow'}}>
+          <DailyTracker />
+          <WeeklyTracker />
+          <YearlyTracker />
+          <Start />
+          <Timer />
+        </section>
       </div>
     );
   }

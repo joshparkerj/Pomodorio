@@ -2,14 +2,22 @@
 import React, {PropTypes} from 'react';
 import Header from './common/Header';
 import Navigation from './common/Navigation'
+import LeftSidebar from './common/LeftSidebar'
 
 class App extends React.Component {
   render() {
     return ( //props.chilren will be passed in from react-router 
-      <div className="container-fluid">
+      <div >
         <Header />
-        <Navigation/>
-        {this.props.children}
+        <div style={{display: 'flex'}}>
+          <section >
+            <LeftSidebar />
+          </section>
+          <section >
+            <Navigation />
+            {this.props.children}
+          </section>
+        </div>
       </div>
     );
   }
