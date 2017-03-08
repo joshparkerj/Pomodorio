@@ -3,16 +3,16 @@ let Menu = require('react-burger-menu').slide;
 
 class Example extends React.Component{
   showSettings(event) {
-    event.preventDefault()
+    event.preventDefault();
 
   }
   render() {
     return (
-      <Menu style={{width: '20px', height: '20px'}}>
+      <Menu>
         <a id="home" className="menu-item">Home</a>
         <a id="about" className="menu-item">About</a>
         <a id="contact" className="menu-item">Contact</a>
-        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+        <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a>
       </Menu>
     );
   }
