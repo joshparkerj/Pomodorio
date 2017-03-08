@@ -68,22 +68,41 @@ p{
 }
 
 .components{
+  height: 100px;
   border: 1px solid rgb(230, 230, 230);
-  text-align: center;
   margin: 10px;
   border-radius: 5px;
 }
+.timer{
+    margin-left: -5px;
+  }
+  .start{
+    margin-right: -5px;
+  }
 
-.size1{
-  height: 100px;
-  width: 620px;
-}
+  .maxWidth{
+    max-width: 500px;
+  }
 
-.size2{
-  height: 100px; 
-  width: 300px;
-}
 
-@media screen and (min-width: 480px){
+@media (max-width:767px) {
+	.sidebar {
+		display:none;
+	}
+  .navbar {
+    display: none;
+  }
+  .mainSection{
+    width: 100vw;
+  }
+  .timer{
+    margin-left: 10px;
+  }
+  .start{
+    margin-right: 10px;
+  }
+  .maxWidth{
+    max-width: none;
+  }
   
 }

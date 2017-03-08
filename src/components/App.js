@@ -9,11 +9,11 @@ class App extends React.Component {
     return ( //props.chilren will be passed in from react-router 
       <div >
         <Header />
-        <div style={{display: 'flex'}}>
-          <section >
+        <div style={{display: 'flex'}} className='maxWidth'>
+          <section>
             <LeftSidebar />
           </section>
-          <section style={{padding: '0px 15px'}}>
+          <section style={{width: '100vw'}} >
             <Navigation />
             {this.props.children}
           </section>
