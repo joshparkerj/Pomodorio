@@ -46,13 +46,15 @@ p{
   .hover:hover{
     border-bottom: 1px solid rgb(226,87,0);
   }
-
+  .navbar{
+    display: flex;
+  }
 
 @media (max-width:767px) {
 	.sidebar {
 		display:none;
 	}
-  .myNavbar {
+  .navbar {
     display: none;
   }
   .mainSection{
