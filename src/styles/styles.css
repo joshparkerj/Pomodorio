@@ -13,6 +13,15 @@ p{
   color: lightslategrey;
 }
 
+#analogClock{enable-background:new 0 0 100 100;}
+.st0{fill:#333333;}
+.st1{fill:#1A1A1A;}
+.st2{fill:#FFFFFF;}
+.st3{opacity:7.000000e-02;fill:#0071BC;}
+.st4{opacity:0.75;fill:#0071BC;}
+.st5{fill:#E6E6E6;}
+.st6{opacity:0.34;}
+.st7{fill:#C1272D;}
 
 .cls-1{fill:#121212;stroke:#242424;stroke-miterlimit:10;}
 .cls-2{fill:none;}
