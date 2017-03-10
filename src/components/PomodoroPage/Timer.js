@@ -1,42 +1,15 @@
 import React from 'react'; 
 
 class Timer extends React.Component{
-  constructor(props) {
-    super(props);
-    let date = new Date();
-    let min = date.getMinutes();
-    let hour = date.getHours();
-    this.setTime = this.setTime.bind(this);
+  constructor() {
+    super();
     this.state = {
-      min: min < 10 ? `0${min}` : min,
-      hour: hour <= 12 ? hour : hour - 12,
       blink: 'visible'
     };
   }  
-
-  componentDidMount(){
-    this.handle = setInterval(this.setTime, 500);
-  }
-
-  componentWillUnmount(){
-    clearInterval(this.handle);
-  }
-
-  setTime(){
-    let date = new Date();
-    let min = date.getMinutes();
-    let hour = date.getHours();
-    let blink = this.state.blink;
-    this.setState({
-      min: min < 10 ? `0${min}` : min,
-      hour: hour <= 12 ? hour : hour - 12,
-      blink: blink === 'visible' ? 'hidden' : 'visible'
-    });
-    
-  }
   render(){
-    let hour = this.state.hour;
-    let min = this.state.min;
+    let min = this.props.min;
+    let sec = this.props.sec;
     let blink = this.state.blink;
     return(
       <div  className='col-xs-12 col-sm-6 col-md-6'>
@@ -46,7 +19,7 @@ class Timer extends React.Component{
               <foreignObject width="100%" height="100%">
                   <div xmlns="http://www.w3.org/1999/xhtml" className="f-object">
                     <div style={styles.numbers}>
-                      <span>{hour}</span><span style={{visibility: blink}}>:</span><span>{min}</span>
+                      <span>{min}</span><span style={{visibility: blink}}>:</span><span>{sec}</span>
                       </div>
                   </div>
               </foreignObject>
