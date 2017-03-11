@@ -13,11 +13,17 @@ let button = {
   background: 'rgb(24,157,144)'
 };
 
+let blinkInterval;
+let countInterval; 
+let stateOfTimer = 'idle';
+
 class PomodoroPage extends React.Component {
   constructor() {
     super();
     this.startTimer = this.startTimer.bind(this);
     this.timerDone = this.timerDone.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.clearTimer = this.clearTimer.bind(this);
     this.state = {
       minutes: '--',
       seconds: '--',
@@ -29,39 +35,53 @@ class PomodoroPage extends React.Component {
 
   timerDone(){
     button.background = 'rgb(81,179,112)';
-          this.setState({
-            buttonStyle : button,
-            text: 'Restart'
-          });
-    this.blink = setInterval(()=> {
+    stateOfTimer = 'finished';
+    this.setState({
+      buttonStyle : button,
+      text: 'Clear Timer'
+    });
+    blinkInterval = setInterval(()=> {
       this.setState({
         blink: this.state.blink === 'visible' ? 'hidden' : 'visible'
-      })
-      console.log('blinking')
-    },500)
+      });
+    },500);
   }
 
-  clearTimer(){
+  
 
+  handleClick(){
+    if(stateOfTimer === 'idle'){
+     this.startTimer();
+    }
+    if(stateOfTimer === 'running'){
+      this.clearTimer();
+    }
+    if(stateOfTimer === 'finished'){
+      this.clearTimer();
+    }
   }
 
   startTimer(){
-    let duration = 5;
+    
+    clearInterval(blinkInterval);
+    clearInterval(countInterval);
+    let duration = 4;
     let timer = duration;
     let minutes; 
     let seconds;
-
+    // stateOfTimer = 'running';
+  
     button.background = 'rgb(241,71,65)';
-
-    this.setState({
-      buttonStyle: button,
-      text: 'Stop',
-      minutes: '00',
-      seconds: '00'
-    });
-
-    let interval = setInterval(() => {
     
+      this.setState({
+        buttonStyle: button,
+        text: 'Stop',
+        minutes: '00',
+        seconds: '05',
+        blink: 'visible'
+      });
+
+    countInterval = setInterval(() => {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
         
@@ -74,23 +94,37 @@ class PomodoroPage extends React.Component {
         });
 
         if (--timer < 0) {
-          clearInterval(interval);
+          clearInterval(countInterval);
           this.timerDone();
         }
         
     }, 1000);
-    
+  }
+  
+  
+  clearTimer(){
+    clearInterval(blinkInterval);
+    clearInterval(countInterval);
+    button.background = 'rgb(24,157,144)';
+    stateOfTimer = 'idle';
+      this.setState({
+        buttonStyle: button,
+        text: 'Start',
+        minutes: '--',
+        seconds: '--',
+        blink: 'visible'
+      });
   }
 
+
+
   render(){
-
-
 
     return (
       <div>
         <section style={{display: 'flex', flexWrap:'wrap'}} >
-          <Start startTime = {this.startTimer} buttonStyle = {this.state.buttonStyle} text = {this.state.text}/>
-          <Timer min = {this.state.minutes} sec = {this.state.seconds}/>
+          <Start handleClick = {this.handleClick} buttonStyle = {this.state.buttonStyle} text = {this.state.text}/>
+          <Timer min = {this.state.minutes} sec = {this.state.seconds} blink = {this.state.blink}/>
           <DailyTracker />
           <WeeklyTracker />
           <YearlyTracker />
