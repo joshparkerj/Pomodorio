@@ -18,8 +18,8 @@ let countInterval;
 let stateOfTimer = 'idle';
 
 class PomodoroPage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.startTimer = this.startTimer.bind(this);
     this.timerDone = this.timerDone.bind(this);
     this.handleClick = this.handleClick.bind(this);
