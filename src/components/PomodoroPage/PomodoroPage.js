@@ -5,13 +5,7 @@ import WeeklyTracker from './WeeklyTracker';
 import YearlyTracker from './YearlyTracker';
 import Start from './Start';
 import Timer from './Timer';
-
-let button = {
-  outline: 'none',
-  width:'200px', 
-  height:'70px',
-  background: 'rgb(24,157,144)'
-};
+import './PomodoroPage.css';
 
 let blinkInterval;
 let countInterval; 
