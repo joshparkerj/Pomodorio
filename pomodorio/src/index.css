@@ -1,1 +1,48 @@
+a { color: inherit; } 
 
+#app {
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #4d4d4d;
+}
+p {
+  color: lightslategrey;
+}
+
+
+@font-face{
+ font-family:'digital-clock-font';
+ src: url('./fonts/digital-7/digital-7.ttf');
+}
+
+
+
+
+
+.components{
+  height: 100px;
+  border: 1px solid rgb(230, 230, 230);
+  margin: 10px;
+  border-radius: 5px;
+}
+
+
+.maxWidth{
+  max-width: 500px;
+}
+  
+
+ 
+
+@media (max-width:767px) {
+	
+  .navbar {
+    display: none;
+  }
+  .mainSection{
+    width: 100vw;
+  }
+  .maxWidth{
+    max-width: none;
+  }
+  
+}
