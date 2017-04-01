@@ -1,5 +1,4 @@
-import React from 'react';
-import {Link} from 'react-router'; 
+import React from 'react'; 
 import DailyTracker from './DailyTracker';
 import WeeklyTracker from './WeeklyTracker';
 import YearlyTracker from './YearlyTracker';
@@ -121,13 +120,14 @@ class PomodoroPage extends React.Component {
 
     return (
       <div>
-        <section style={{display: 'flex', flexWrap:'wrap'}} >
+        <h1>Hello</h1>
+        {/*<section style={{display: 'flex', flexWrap:'wrap'}} >
           <Start handleClick = {this.handleClick} buttonStyle = {this.state.buttonStyle} text = {this.state.text}/>
           <Timer min = {this.state.minutes} sec = {this.state.seconds} blink = {this.state.blink}/>
           <DailyTracker />
           <WeeklyTracker />
           <YearlyTracker />
-        </section>
+        </section>*/}
       </div>
     );
   }
