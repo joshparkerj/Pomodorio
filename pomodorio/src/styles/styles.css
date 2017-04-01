@@ -1,0 +1,82 @@
+
+@font-face{
+ font-family:'digital-clock-font';
+ src: url('./digital-7/digital-7.ttf');
+}
+a { color: inherit; } 
+
+#app {
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #4d4d4d;
+}
+p{
+  color: lightslategrey;
+}
+
+#analogClock{enable-background:new 0 0 100 100;}
+.st0{fill:#333333;}
+.st1{fill:#1A1A1A;}
+.st2{fill:#FFFFFF;}
+.st3{opacity:7.000000e-02;fill:#0071BC;}
+.st4{opacity:0.75;fill:#0071BC;}
+.st5{fill:#E6E6E6;}
+.st6{opacity:0.34;}
+.st7{fill:#C1272D;}
+
+.cls-1{fill:#121212;stroke:#242424;stroke-miterlimit:10;}
+.cls-2{fill:none;}
+.cls-3{fill:#fff;}
+
+
+.components{
+  height: 100px;
+  border: 1px solid rgb(230, 230, 230);
+  margin: 10px;
+  border-radius: 5px;
+}
+.timer{
+    margin-left: -5px;
+  }
+  .start{
+    margin-right: -5px;
+  }
+
+  .maxWidth{
+    max-width: 500px;
+  }
+  
+  .hover{
+    text-align: center;
+    height: 100%;
+    width: 75px;
+    padding:25px 0px;
+  }
+
+  .hover:hover{
+    border-bottom: 1px solid rgb(226,87,0);
+  }
+  .navbar{
+    display: flex;
+  }
+
+@media (max-width:767px) {
+	.sidebar {
+		display:none;
+	}
+  .navbar {
+    display: none;
+  }
+  .mainSection{
+    width: 100vw;
+  }
+  .timer{
+    margin-left: 10px;
+  }
+  .start{
+    margin-right: 10px;
+  }
+  .maxWidth{
+    max-width: none;
+  }
+  
+}
