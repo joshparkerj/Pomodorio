@@ -1,0 +1,23 @@
+
+.cls-1{fill:#121212;stroke:#242424;stroke-miterlimit:10;}
+
+.numbers {
+    padding: 5px;
+    display:flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-family: digital-clock-font;
+    letter-spacing: 2px;
+    color:rgb(51,	213,	229);
+  }
+
+  .digitalClock{
+    height: 100%;
+  }
+
+  .timer{
+  margin-left: 10px;
+  display:flex;
+  justify-content: center;
+}

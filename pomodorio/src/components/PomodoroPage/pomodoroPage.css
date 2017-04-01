@@ -1,25 +1,7 @@
-.button {
-  outline:  none;
-  width: 200px ; 
-  height: 70px ;
-  background:  rgb(24,157,144) ;
+
+.components{
+  height: 100px;
+  border: 1px solid rgb(230, 230, 230);
+  margin: 10px;
+  border-radius: 5px;
 }
-
-#analogClock{enable-background:new 0 0 100 100;}
-.st0{fill:#333333;}
-.st1{fill:#1A1A1A;}
-.st2{fill:#FFFFFF;}
-.st3{opacity:7.000000e-02;fill:#0071BC;}
-.st4{opacity:0.75;fill:#0071BC;}
-.st5{fill:#E6E6E6;}
-.st6{opacity:0.34;}
-.st7{fill:#C1272D;}
-
-
-.timer{
-  margin-left: 10px;
-}
-.start{
-  margin-right: 10px;
-}
-

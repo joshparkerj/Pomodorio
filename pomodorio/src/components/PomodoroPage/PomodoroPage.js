@@ -1,20 +1,15 @@
 import React from 'react'; 
+import Start from './Start';
+import Timer from './Timer';
 import DailyTracker from './DailyTracker';
 import WeeklyTracker from './WeeklyTracker';
 import YearlyTracker from './YearlyTracker';
-import Start from './Start';
-import Timer from './Timer';
-// import './PomodoroPage.css';
+import './PomodoroPage.css';
 
 let blinkInterval;
 let countInterval; 
 let stateOfTimer = 'idle';
-let button = {
-  outline:  'none',
-  width: '200px', 
-  height: '70px',
-  background:  'rgb(24,157,144)' 
-}
+
 class PomodoroPage extends React.Component {
   constructor(props) {
     super(props);
@@ -27,15 +22,14 @@ class PomodoroPage extends React.Component {
       seconds: '--',
       blink: 'visible',
       text: 'Start',
-      buttonStyle: button
+      buttonStyle: {background:  'rgb(24,157,144)'}
     };
   }  
 
   timerDone(){
-    button.background = 'rgb(81,179,112)';
     stateOfTimer = 'finished';
     this.setState({
-      buttonStyle : button,
+      buttonStyle : {background: 'rgb(81,179,112)'},
       text: 'Clear Timer'
     });
     blinkInterval = setInterval(()=> {
@@ -68,11 +62,10 @@ class PomodoroPage extends React.Component {
     let minutes; 
     let seconds;
     // stateOfTimer = 'running';
-  
-    button.background = 'rgb(241,71,65)';
+
     
       this.setState({
-        buttonStyle: button,
+        buttonStyle: {background: 'rgb(241,71,65)'},
         text: 'Stop',
         minutes: '00',
         seconds: '05',
@@ -103,10 +96,9 @@ class PomodoroPage extends React.Component {
   clearTimer(){
     clearInterval(blinkInterval);
     clearInterval(countInterval);
-    button.background = 'rgb(24,157,144)';
     stateOfTimer = 'idle';
       this.setState({
-        buttonStyle: button,
+        buttonStyle: {background: 'rgb(24,157,144)'},
         text: 'Start',
         minutes: '--',
         seconds: '--',

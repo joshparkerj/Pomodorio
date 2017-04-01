@@ -1,0 +1,17 @@
+.start{
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.start button{
+  outline: none;
+  width: 200px; 
+  height: 70px;
+}
+
+.start button:focus{
+  outline: none;
+}

@@ -1,11 +1,18 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Button} from 'react-materialize';
-class Start extends React.Component{
+import './Start.css';
+
+class Start extends Component{
   render(){
+
+    let handleClick = this.props.handleClick;
+    let buttonStyle = this.props.buttonStyle;
+    let text = this.props.text;
+
     return(
       <div  className='col-xs-12 col-sm-6 col-md-6'>
-        <div className='components start'style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-          <Button onClick={this.props.handleClick} style={this.props.buttonStyle}>{this.props.text}</Button> 
+        <div className='components start'>
+          <Button onClick={handleClick} style={buttonStyle}>{text}</Button> 
         </div>
       </div>
     );
