@@ -1,40 +1,35 @@
-import React from 'react';
-import {Link} from 'react-router'; 
+import React, {Component} from 'react'; 
+import Start from './Start';
+import Timer from './Timer';
 import DailyTracker from './DailyTracker';
 import WeeklyTracker from './WeeklyTracker';
 import YearlyTracker from './YearlyTracker';
-import Start from './Start';
-import Timer from './Timer';
 import './PomodoroPage.css';
 
-let blinkInterval;
-let countInterval; 
-let stateOfTimer = 'idle';
 
-class PomodoroPage extends React.Component {
+class PomodoroPage extends Component {
   constructor(props) {
     super(props);
-    this.startTimer = this.startTimer.bind(this);
-    this.timerDone = this.timerDone.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.clearTimer = this.clearTimer.bind(this);
+
     this.state = {
+      stateOfTimer: 'idle',
+      blinkInterval: '',
+      countInterval: '',
       minutes: '--',
       seconds: '--',
       blink: 'visible',
       text: 'Start',
-      buttonStyle: button
+      buttonStyle: {background:  'rgb(24,157,144)'}
     };
   }  
 
   timerDone(){
-    button.background = 'rgb(81,179,112)';
-    stateOfTimer = 'finished';
+    this.state.stateOfTimer = 'finished';
     this.setState({
-      buttonStyle : button,
+      buttonStyle : {background: 'rgb(81,179,112)'},
       text: 'Clear Timer'
     });
-    blinkInterval = setInterval(()=> {
+    this.state.blinkInterval = setInterval(()=> {
       this.setState({
         blink: this.state.blink === 'visible' ? 'hidden' : 'visible'
       });
@@ -44,38 +39,37 @@ class PomodoroPage extends React.Component {
   
 
   handleClick(){
-    if(stateOfTimer === 'idle'){
-     this.startTimer();
+    if(this.state.stateOfTimer === 'idle'){
+     this.startTimer().bind(this);
     }
-    if(stateOfTimer === 'running'){
-      this.clearTimer();
+    if(this.state.stateOfTimer === 'running'){
+      this.clearTimer().bind(this);
     }
-    if(stateOfTimer === 'finished'){
-      this.clearTimer();
+    if(this.state.stateOfTimer === 'finished'){
+      this.clearTimer().bind(this);
     }
   }
 
   startTimer(){
     
-    clearInterval(blinkInterval);
-    clearInterval(countInterval);
+    clearInterval(this.state.blinkInterval);
+    clearInterval(this.state.countInterval);
     let duration = 4;
     let timer = duration;
     let minutes; 
     let seconds;
-    // stateOfTimer = 'running';
-  
-    button.background = 'rgb(241,71,65)';
-    
-      this.setState({
-        buttonStyle: button,
-        text: 'Stop',
-        minutes: '00',
-        seconds: '05',
-        blink: 'visible'
-      });
+    this.state.stateOfTimer = 'running';
 
-    countInterval = setInterval(() => {
+  
+    this.setState({
+      buttonStyle: {background: 'rgb(241,71,65)'},
+      text: 'Stop',
+      minutes: '00',
+      seconds: '05',
+      blink: 'visible'
+    });
+
+    this.state.countInterval = setInterval(() => {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
         
@@ -88,7 +82,7 @@ class PomodoroPage extends React.Component {
         });
 
         if (--timer < 0) {
-          clearInterval(countInterval);
+          clearInterval(this.state.countInterval);
           this.timerDone();
         }
         
@@ -97,12 +91,11 @@ class PomodoroPage extends React.Component {
   
   
   clearTimer(){
-    clearInterval(blinkInterval);
-    clearInterval(countInterval);
-    button.background = 'rgb(24,157,144)';
-    stateOfTimer = 'idle';
+    clearInterval(this.state.blinkInterval);
+    clearInterval(this.state.countInterval);
+    this.state.stateOfTimer = 'idle';
       this.setState({
-        buttonStyle: button,
+        buttonStyle: {background: 'rgb(24,157,144)'},
         text: 'Start',
         minutes: '--',
         seconds: '--',
@@ -117,7 +110,7 @@ class PomodoroPage extends React.Component {
     return (
       <div>
         <section style={{display: 'flex', flexWrap:'wrap'}} >
-          <Start handleClick = {this.handleClick} buttonStyle = {this.state.buttonStyle} text = {this.state.text}/>
+          <Start handleClick = {this.handleClick.bind(this)} buttonStyle = {this.state.buttonStyle} text = {this.state.text}/>
           <Timer min = {this.state.minutes} sec = {this.state.seconds} blink = {this.state.blink}/>
           <DailyTracker />
           <WeeklyTracker />

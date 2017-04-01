@@ -1,6 +1,7 @@
-.button {
-  outline:  none;
-  width: 200px ; 
-  height: 70px ;
-  background:  rgb(24,157,144) ;
+
+.components{
+  height: 100px;
+  border: 1px solid rgb(230, 230, 230);
+  margin: 10px;
+  border-radius: 5px;
 }
