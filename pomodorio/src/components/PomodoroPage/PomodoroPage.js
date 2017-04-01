@@ -120,14 +120,13 @@ class PomodoroPage extends React.Component {
 
     return (
       <div>
-        <h1>Hello</h1>
-        {/*<section style={{display: 'flex', flexWrap:'wrap'}} >
+        <section style={{display: 'flex', flexWrap:'wrap'}} >
           <Start handleClick = {this.handleClick} buttonStyle = {this.state.buttonStyle} text = {this.state.text}/>
           <Timer min = {this.state.minutes} sec = {this.state.seconds} blink = {this.state.blink}/>
           <DailyTracker />
           <WeeklyTracker />
           <YearlyTracker />
-        </section>*/}
+        </section>
       </div>
     );
   }

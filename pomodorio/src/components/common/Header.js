@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link, IndexLink} from 'react-router';
 import SideNav from './SideNav';
 import PlusIcon from './Icons/PlusIcon';
 import HamIcon from './Icons/HamIcon';

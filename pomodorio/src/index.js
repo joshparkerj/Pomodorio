@@ -11,8 +11,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Route path="/" component={App}>  
-      <Route path="pomodoro" component={PomodoroPage} />
+    <Route component={App}>  
+      <Route path="/" component={PomodoroPage} />
       <Route path="settings" component={SettingsPage} />
     </Route>
   </Router>,
