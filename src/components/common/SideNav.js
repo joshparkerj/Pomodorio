@@ -1,6 +1,5 @@
 import React from 'react';
-import {SideNav, SideNavItem, Button} from 'react-materialize';
-import {Link} from 'react-router';
+import {SideNav, SideNavItem} from 'react-materialize';
 import HamIcon from './Icons/HamIcon';
 
 export default () => {
@@ -18,8 +17,8 @@ export default () => {
         }}
       />
      
-      <Link to='/'><SideNavItem >Pomodoro</SideNavItem></Link>
-      <Link to='settings'><SideNavItem >Settings</SideNavItem></Link>
+      <SideNavItem >Pomodoro</SideNavItem>
+      <SideNavItem >Settings</SideNavItem>
       <SideNavItem divider />
       
       <SideNavItem waves>Logout</SideNavItem>

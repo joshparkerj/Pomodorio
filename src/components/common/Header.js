@@ -1,7 +1,6 @@
 import React from 'react';
 import SideNav from './SideNav';
 import PlusIcon from './Icons/PlusIcon';
-import HamIcon from './Icons/HamIcon';
 import './Header.css'
 
 const Header = () => {
