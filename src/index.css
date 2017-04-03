@@ -19,8 +19,15 @@ p {
 .maxWidth{
   max-width: 500px;
 }
+
+.mainSection {
+  width: calc(100vw - 200px);
+}
   
 @media (max-width:767px) {
+  .mainSection {
+    width: 100vw;
+  }
 
   .mainSection{
     width: 100vw;

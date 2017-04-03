@@ -10,6 +10,7 @@
     font-family: digital-clock-font;
     letter-spacing: 2px;
     color:rgb(51,	213,	229);
+    
   }
 
   .digitalClock{
@@ -17,7 +18,16 @@
   }
 
   .timer{
-  margin-left: 10px;
+  height: 100px;
+  border: 1px solid rgb(230, 230, 230);
+  margin: 10px 10px 10px 0px;
+  border-radius: 5px;
   display:flex;
   justify-content: center;
+}
+
+@media (max-width:767px) {
+  .timer{
+    margin: 10px;
+  }
 }

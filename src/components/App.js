@@ -14,7 +14,7 @@ class App extends Component {
           <section>
             <LeftSidebar />
           </section>
-          <section style={{width: '100vw'}} >
+          <section className='mainSection' >
             <Navigation />
             {this.props.children}
           </section>

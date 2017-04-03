@@ -11,7 +11,7 @@ class Start extends Component{
 
     return(
       <div  className='col-xs-12 col-sm-6 col-md-6'>
-        <div className='components start'>
+        <div className='start'>
           <Button onClick={handleClick} style={buttonStyle}>{text}</Button> 
         </div>
       </div>
