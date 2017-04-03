@@ -16,10 +16,20 @@ class PomodoroPage extends Component {
       seconds: '--',
       blink: 'visible',
       text: 'Start',
-      buttonStyle: {background:  'rgb(24,157,144)'}
+      buttonStyle: {background:  'rgb(24,157,144)'},
+      dailyCount: 17,
+      data: [0, 3, 4, 4, 2, 3, 1]
+     
   };
+  
+  componentDidMount(){
 
+  }//end of componentDidMount
 
+  componentWillUnmount(){
+    clearInterval(this.state.blinkInterval);
+    clearInterval(this.state.countInterval);
+  }//end of componentDidMount
 
   handleClick(){
     if(this.state.stateOfTimer === 'idle'){
@@ -32,9 +42,6 @@ class PomodoroPage extends Component {
       this.clearTimer.call(this);
     }
   } 
-
-
-  
 
   startTimer(){
     
@@ -79,6 +86,7 @@ class PomodoroPage extends Component {
   timerDone(){
     let newState = this.state
     newState = {
+    dailyCount: this.state.dailyCount + 1,
     stateOfTimer: 'finished',
     buttonStyle : {background: 'rgb(81,179,112)'},
     text: 'Clear Timer',
@@ -110,11 +118,30 @@ class PomodoroPage extends Component {
   } //end of clearTimer
 
 
-
   render(){
+    let data = {
+        labels: ['Sun','Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'],
+        datasets: [
+          {
+            label: '# of Pomodoros',
+            backgroundColor: 'rgba(255,99,132,0.2)',
+            borderColor: 'rgba(255,99,132,1)',
+            borderWidth: 1,
+            hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+            hoverBorderColor: 'rgba(255,99,132,1)',
+            data: this.state.data,
+          }
+        ]
+      };
+      let options = {
+        animation : false,
+        legend: {
+          display: false
+        }
+      }
+
     return (
-      <div>
-        <section style={{display: 'flex', flexWrap:'wrap'}} >
+        <div style={{display: 'flex', flexWrap:'wrap'}} >
           <Start 
             handleClick={this.handleClick.bind(this)} 
             buttonStyle={this.state.buttonStyle} 
@@ -123,11 +150,10 @@ class PomodoroPage extends Component {
             min={this.state.minutes} 
             sec={this.state.seconds} 
             blink={this.state.blink}/>
-          <DailyTracker />
-          <WeeklyTracker />
+          <DailyTracker dailyCount={this.state.dailyCount} />
+          <WeeklyTracker data={data} options={options}/>
           <YearlyTracker />
-        </section>
-      </div>
+        </div>
     );
   }
 } //end of PomodoroPage

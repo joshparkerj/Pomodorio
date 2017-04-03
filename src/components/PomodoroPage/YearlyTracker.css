@@ -1,0 +1,12 @@
+.cls-day{
+  fill:rgba(232, 234, 238, 1);
+  stroke: none;
+  }
+
+.yearlyTracker{
+  height: fit-content;
+  padding: 10px;
+  border: 1px solid rgb(230, 230, 230);
+  margin: 10px;
+  border-radius: 5px;
+}
