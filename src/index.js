@@ -5,7 +5,6 @@ import App from './components/App';
 import PomodoroPage from './components/PomodoroPage/PomodoroPage';
 import SettingsPage from './components/SettingsPage/SettingsPage';
 import './index.css';
-
 import './reset.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 

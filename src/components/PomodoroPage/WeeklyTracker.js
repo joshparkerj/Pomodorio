@@ -9,7 +9,7 @@ class WeeklyTracker extends Component {
     return (
        <div className='col-xs-12 col-sm-12 col-md-12'>
         <div className='weeklyTracker'>
-          <RC2 data={this.props.data} options={this.props.options} type='bar' />
+          <RC2 data={this.props.data} options={this.props.options} type='line' />
         </div>
       </div>
     );

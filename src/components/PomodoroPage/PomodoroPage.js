@@ -6,6 +6,29 @@ import WeeklyTracker from './WeeklyTracker';
 import YearlyTracker from './YearlyTracker';
 import './PomodoroPage.css';
 
+let days = ['Sun','Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
+let dayData = [1, 3, 0, 5, 2, 3, 1];
+let today = new Date().getDay();
+
+let orderedData = [
+  dayData[today-6] ? dayData[today-6] : dayData[today+1], 
+  dayData[today-5] ? dayData[today-5] : dayData[today+2],  
+  dayData[today-4] ? dayData[today-4] : dayData[today+3], 
+  dayData[today-3] ? dayData[today-3] : dayData[today+4],  
+  dayData[today-2] ? dayData[today-2] : dayData[today+5],  
+  dayData[today-1] ? dayData[today-1] : dayData[today+6],  
+  dayData[today]
+]
+
+let orderedDays = [
+  days[today-6] ? days[today-6] : days[today+1], 
+  days[today-5] ? days[today-5] : days[today+2],  
+  days[today-4] ? days[today-4] : days[today+3], 
+  days[today-3] ? days[today-3] : days[today+4],  
+  days[today-2] ? days[today-2] : days[today+5],  
+  days[today-1] ? days[today-1] : days[today+6],  
+  days[today]
+]
 
 class PomodoroPage extends Component {
   state = {
@@ -17,9 +40,7 @@ class PomodoroPage extends Component {
       blink: 'visible',
       text: 'Start',
       buttonStyle: {background:  'rgb(24,157,144)'},
-      dailyCount: 17,
-      data: [0, 3, 4, 4, 2, 3, 1]
-     
+      data: orderedData,
   };
   
   componentDidMount(){
@@ -84,7 +105,9 @@ class PomodoroPage extends Component {
   } //end of startTimer
   
   timerDone(){
+    
     let newState = this.state
+    newState.data[newState.data.length-1] = newState.data[newState.data.length-1] + 1
     newState = {
     dailyCount: this.state.dailyCount + 1,
     stateOfTimer: 'finished',
@@ -119,21 +142,41 @@ class PomodoroPage extends Component {
 
 
   render(){
+
+    
+
     let data = {
-        labels: ['Sun','Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'],
+        labels: orderedDays,
+        
         datasets: [
           {
-            label: '# of Pomodoros',
-            backgroundColor: 'rgba(255,99,132,0.2)',
-            borderColor: 'rgba(255,99,132,1)',
+            label: 'Pomodoros',
+            backgroundColor: 'rgba(255,99,132,0.05)',
+            borderColor: 'rgba(255,99,132,.9)',
             borderWidth: 1,
-            hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+            hoverBackgroundColor: 'rgba(255,99,132,0.3)',
             hoverBorderColor: 'rgba(255,99,132,1)',
             data: this.state.data,
           }
         ]
       };
       let options = {
+        responsive: true,
+        scales: {
+            yAxes: [{
+                display: true,
+                ticks: {
+                    stepSize: 1,
+                    min: 0,
+                    max: 8
+                }
+            }]
+        },
+        elements: {
+            line: {
+                tension: 0
+            }
+        },
         animation : false,
         legend: {
           display: false
@@ -150,7 +193,7 @@ class PomodoroPage extends Component {
             min={this.state.minutes} 
             sec={this.state.seconds} 
             blink={this.state.blink}/>
-          <DailyTracker dailyCount={this.state.dailyCount} />
+          <DailyTracker dailyCount={this.state.data[this.state.data.length-1]} />
           <WeeklyTracker data={data} options={options}/>
           <YearlyTracker />
         </div>
