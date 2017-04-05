@@ -7,7 +7,7 @@ import YearlyTracker from './YearlyTracker';
 import './PomodoroPage.css';
 
 let days = ['Sun','Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
-let dayData = [1, 3, 0, 5, 2, 3, 1];
+let dayData = [1, 3, 1, 2, 2, 3, 1];
 let today = new Date().getDay();
 
 let orderedData = [
