@@ -8,9 +8,9 @@ import LeftSidebar from './common/LeftSidebar'
 class App extends Component {
   render() {
     return ( //props.chilren will be passed in from react-router 
-      <div >
+      <div>
         <Header />
-        <div style={{display: 'flex'}}>
+        <div style={{ maxWidth:'1000px', display: 'flex', margin:'0 auto'}}>
           <section>
             <LeftSidebar />
           </section>

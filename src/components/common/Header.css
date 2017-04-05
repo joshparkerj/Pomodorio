@@ -1,2 +1,38 @@
 .cls-2{fill:none;}
 .cls-3{fill:#fff;}
+
+.plus{
+  margin-left: calc(100% - 400px);
+  margin-top: 15px
+}
+
+.hamburgerMenu{
+  margin-left: 25px;
+  margin-top: 15px
+}
+
+.searchbar{
+  margin: 10px 25px; 
+  background: rgb(55, 59, 62);
+  height: 30px; 
+  width:250px; 
+  border-radius: 5px;
+}
+
+@media (min-width:1000px) {
+  .plus{
+    margin-left: 600px;
+  }
+  .hamburgerMenu{
+    margin-left: calc((100vw - 950px)/2);
+  }
+}
+
+@media (max-width:767px) {
+  .searchbar{
+    display: none;
+  }
+  .plus{
+    margin-left: calc(100% - 100px);
+  }
+}

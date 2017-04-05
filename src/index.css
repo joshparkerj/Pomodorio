@@ -21,16 +21,14 @@ p {
 }
 
 .mainSection {
-  width: calc(100vw - 200px);
+  width: calc(100% - 200px);
 }
   
 @media (max-width:767px) {
-  .mainSection {
-    width: 100vw;
-  }
+  
 
   .mainSection{
-    width: 100vw;
+    width: 100%;
   }
   .maxWidth{
     max-width: none;
