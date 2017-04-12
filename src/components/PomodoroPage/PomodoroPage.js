@@ -10,6 +10,8 @@ import './PomodoroPage.css';
 
 let today = new Date().getDay();
 
+let setMin = 1;
+
 class PomodoroPage extends Component {
   state = {
       stateOfTimer: 'idle',
@@ -20,7 +22,7 @@ class PomodoroPage extends Component {
       blink: 'visible',
       text: 'Start',
       buttonStyle: {background:  'rgb(24,157,144)'},
-      weekData: [1, 3, 1, 2, 2, 3, 1],
+      weekData: [1, 3, 2, 0, 2, 3, 1],
   };
   
 
@@ -46,7 +48,7 @@ class PomodoroPage extends Component {
     clearInterval(this.state.blinkInterval);
     clearInterval(this.state.countInterval);
     let newState = this.state
-    let duration = 4;
+    let duration = setMin*60-1;
     let timer = duration;
     let minutes; 
     let seconds;
@@ -55,8 +57,8 @@ class PomodoroPage extends Component {
       stateOfTimer: 'running',
       buttonStyle: {background: 'rgb(241,71,65)'},
       text: 'Stop',
-      minutes: '00',
-      seconds: '05',
+      minutes: setMin < 10 ? `0${setMin}` : setMin,
+      seconds: '00',
       blink: 'visible',
       countInterval: setInterval(() => {
         minutes = parseInt(timer / 60, 10);
