@@ -10,3 +10,11 @@
   margin: 10px;
   border-radius: 5px;
 }
+.daySquare{
+  background: rgba(232, 234, 238, 1);
+  height: 11px; 
+  width: 11px;
+  min-width: 11px;
+  margin: 1px;
+
+}
