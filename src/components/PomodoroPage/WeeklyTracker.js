@@ -4,17 +4,12 @@ import './WeeklyTracker.css'
 
 let today = new Date().getDay();
 
-let days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
+let days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
 
-let orderedDays = [
-  days[today - 6] ? days[today - 6] : days[today + 1],
-  days[today - 5] ? days[today - 5] : days[today + 2],
-  days[today - 4] ? days[today - 4] : days[today + 3],
-  days[today - 3] ? days[today - 3] : days[today + 4],
-  days[today - 2] ? days[today - 2] : days[today + 5],
-  days[today - 1] ? days[today - 1] : days[today + 6],
-  days[today]
-]
+let orderedDays = days.map((day, i, arr) => {
+  return arr[today + i + 1] ? arr[today + i + 1] : arr[today - arr.length + i + 1];
+});
+
 
 let data = {
   labels: orderedDays,
@@ -55,25 +50,22 @@ let options = {
 
 class WeeklyTracker extends Component {
 
-  // shouldComponentUpdate(nextProps){
-    
-  //   return nextProps.weekData[today] !== this.props.weekData[today];
-  // }
+  shouldComponentUpdate(nextProps, nextState){
+    console.log(this.props.weekData[today], nextProps.weekData[today])
+    console.log('------')
+    if(nextProps.weekData[today] === this.props.weekData[today]) {
+      return false
+    }
+    else return true
+  }
   
   render() {
-
-    let weekData = this.props.weekData;
     
-    data.datasets[0].data = [
-      weekData[today-6] ? weekData[today-6] : weekData[today+1], 
-      weekData[today-5] ? weekData[today-5] : weekData[today+2],  
-      weekData[today-4] ? weekData[today-4] : weekData[today+3], 
-      weekData[today-3] ? weekData[today-3] : weekData[today+4],  
-      weekData[today-2] ? weekData[today-2] : weekData[today+5],  
-      weekData[today-1] ? weekData[today-1] : weekData[today+6],  
-      weekData[today]
-    ]
-   
+    //this sets the data for the graph to match the days
+    data.datasets[0].data  = this.props.weekData.map((day, i, arr) => {
+      return arr[today + i + 1] ? arr[today + i + 1] : arr[today - arr.length + i + 1];
+    });
+
     return (
        <div className='col-xs-12 col-sm-12 col-md-12'>
         <div className='weeklyTracker'>

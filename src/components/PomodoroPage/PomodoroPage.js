@@ -10,7 +10,7 @@ import './PomodoroPage.css';
 
 let today = new Date().getDay();
 
-let setMin = 1;
+let setMin = .05;
 
 class PomodoroPage extends Component {
   state = {
@@ -22,7 +22,7 @@ class PomodoroPage extends Component {
       blink: 'visible',
       text: 'Start',
       buttonStyle: {background:  'rgb(24,157,144)'},
-      weekData: [1, 3, 2, 0, 2, 3, 1],
+      weekData: [1, 3, 2, 3, 2, 3, 1],
   };
   
 

@@ -1,38 +1,34 @@
 import React from 'react';
 import './YearlyTracker.css';
 
+var now = new Date();
+var start = new Date(now.getFullYear(), 0, 0);
+var diff = now - start;
+var oneDay = 1000 * 60 * 60 * 24;
+var day = Math.floor(diff / oneDay);
+console.log('Day of year: ' + day);
+
 let thisMonth = new Date().getMonth();
 
 let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-let orderedMonths = [
-  months[thisMonth - 11] ? months[thisMonth - 11] : months[thisMonth + 1],
-  months[thisMonth - 10] ? months[thisMonth - 10] : months[thisMonth + 2],
-  months[thisMonth - 9] ? months[thisMonth - 9] : months[thisMonth + 3],
-  months[thisMonth - 8] ? months[thisMonth - 8] : months[thisMonth + 4],
-  months[thisMonth - 7] ? months[thisMonth - 7] : months[thisMonth + 5],
-  months[thisMonth - 6] ? months[thisMonth - 6] : months[thisMonth + 6],
-  months[thisMonth - 5] ? months[thisMonth - 5] : months[thisMonth + 7],
-  months[thisMonth - 4] ? months[thisMonth - 4] : months[thisMonth + 8],
-  months[thisMonth - 3] ? months[thisMonth - 3] : months[thisMonth + 9],
-  months[thisMonth - 2] ? months[thisMonth - 2] : months[thisMonth + 10],
-  months[thisMonth - 1] ? months[thisMonth - 1] : months[thisMonth + 11],
-  months[thisMonth]
-]
-.map((month, i) => {
-  return <p key={i}>{month}</p>
+let orderedMonths = months.map((month, i, arr) => {
+  return <p key={i}>{arr[thisMonth + i + 1] ? arr[thisMonth + i + 1] : arr[thisMonth - arr.length + i + 1]}</p>
 });
+
+let graph = []
+for(let i = 1; i <= 370; i++){
+  graph.push(
+    <div id={i} key={i} className='daySquare'></div>
+  )
+}
+
 
 class YearlyTracker extends React.Component{
   render(){
     
 
-    let graph = []
-    for(let i = 1; i <= 370; i++){
-      graph.push(
-        <div id={i} key={i} className='daySquare'></div>
-      )
-    }
+    
 
     
 
