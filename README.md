@@ -1,5 +1,4 @@
-Main Idea 
-Desktop Application with Electron. 
+Main Idea
 1. be able to start, stop and complete pomodoros 
   - clock / timer / progress bar
   - chrome notification when pomodoro is complete. 
@@ -7,3 +6,5 @@ Desktop Application with Electron.
   - github style daily tracker 
 3. Social aspect 
   - have different ranks for averages of completed per day. a 
+  
+  Buit in React
