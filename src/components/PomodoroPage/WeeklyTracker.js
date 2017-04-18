@@ -50,14 +50,13 @@ let options = {
 
 class WeeklyTracker extends Component {
 
-  shouldComponentUpdate(nextProps, nextState){
-    console.log(this.props.weekData[today], nextProps.weekData[today])
-    console.log('------')
-    if(nextProps.weekData[today] === this.props.weekData[today]) {
-      return false
-    }
-    else return true
-  }
+  // shouldComponentUpdate(nextProps, nextState){
+
+  //   if(nextProps.weekData[today] === this.props.weekData[today]) {
+  //     return false
+  //   }
+  //   else return true
+  // }
   
   render() {
     

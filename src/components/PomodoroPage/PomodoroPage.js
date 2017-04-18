@@ -10,7 +10,7 @@ import './PomodoroPage.css';
 
 let today = new Date().getDay();
 
-let setMin = .05;
+let setMin = 1;
 
 class PomodoroPage extends Component {
   state = {
