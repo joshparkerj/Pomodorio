@@ -8,9 +8,13 @@ import './index.css';
 import './reset.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+
+// this is a change
+
+
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Route component={App}>  
+    <Route component={App}>
       <Route path="/" component={PomodoroPage} />
       <Route path="settings" component={SettingsPage} />
     </Route>
